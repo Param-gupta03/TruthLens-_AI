@@ -1,0 +1,196 @@
+{
+  "model_name": "roberta-base",
+  "task": "Model A Evidence Relevance Binary Classification",
+  "train_samples": 8213,
+  "valid_samples": 1399,
+  "epochs": 3,
+  "learning_rate": 2e-05,
+  "per_device_batch_size": 8,
+  "grad_accum_steps": 2,
+  "effective_batch_size": 16,
+  "max_length": 256,
+  "class_weights": [
+    0.57114,
+    4.01417
+  ],
+  "precision": "FP16",
+  "gpu_used": "NVIDIA GeForce RTX 2050",
+  "peak_vram_mb": 2982.48,
+  "training_time_seconds": 784.47,
+  "default_val_metrics_at_0_50": {
+    "accuracy": 0.9014,
+    "macro_precision": 0.7691,
+    "macro_recall": 0.7878,
+    "macro_f1": 0.7779,
+    "weighted_f1": 0.903,
+    "not_relevant_f1": 0.9435,
+    "not_relevant_precision": 0.9489,
+    "not_relevant_recall": 0.9381,
+    "not_relevant_support": 1228,
+    "relevant_f1": 0.6124,
+    "relevant_precision": 0.5892,
+    "relevant_recall": 0.6374,
+    "relevant_support": 171,
+    "roc_auc": 0.9143,
+    "pr_auc": 0.6662,
+    "confusion_matrix": [
+      [
+        1152,
+        76
+      ],
+      [
+        62,
+        109
+      ]
+    ]
+  },
+  "selected_threshold": 0.35,
+  "optimal_val_metrics": {
+    "accuracy": 0.9021,
+    "macro_precision": 0.7703,
+    "macro_recall": 0.7957,
+    "macro_f1": 0.7821,
+    "weighted_f1": 0.9043,
+    "not_relevant_f1": 0.9438,
+    "not_relevant_precision": 0.9512,
+    "not_relevant_recall": 0.9365,
+    "not_relevant_support": 1228,
+    "relevant_f1": 0.6205,
+    "relevant_precision": 0.5895,
+    "relevant_recall": 0.655,
+    "relevant_support": 171,
+    "roc_auc": 0.9143,
+    "pr_auc": 0.6662,
+    "confusion_matrix": [
+      [
+        1150,
+        78
+      ],
+      [
+        59,
+        112
+      ]
+    ]
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.3,
+      "accuracy": 0.9006,
+      "macro_f1": 0.781,
+      "relevant_precision": 0.5825,
+      "relevant_recall": 0.6608,
+      "relevant_f1": 0.6192,
+      "not_relevant_f1": 0.9429
+    },
+    {
+      "threshold": 0.35,
+      "accuracy": 0.9021,
+      "macro_f1": 0.7821,
+      "relevant_precision": 0.5895,
+      "relevant_recall": 0.655,
+      "relevant_f1": 0.6205,
+      "not_relevant_f1": 0.9438
+    },
+    {
+      "threshold": 0.4,
+      "accuracy": 0.9021,
+      "macro_f1": 0.7821,
+      "relevant_precision": 0.5895,
+      "relevant_recall": 0.655,
+      "relevant_f1": 0.6205,
+      "not_relevant_f1": 0.9438
+    },
+    {
+      "threshold": 0.45,
+      "accuracy": 0.9014,
+      "macro_f1": 0.779,
+      "relevant_precision": 0.5882,
+      "relevant_recall": 0.6433,
+      "relevant_f1": 0.6145,
+      "not_relevant_f1": 0.9434
+    },
+    {
+      "threshold": 0.5,
+      "accuracy": 0.9014,
+      "macro_f1": 0.7779,
+      "relevant_precision": 0.5892,
+      "relevant_recall": 0.6374,
+      "relevant_f1": 0.6124,
+      "not_relevant_f1": 0.9435
+    },
+    {
+      "threshold": 0.55,
+      "accuracy": 0.9028,
+      "macro_f1": 0.779,
+      "relevant_precision": 0.5967,
+      "relevant_recall": 0.6316,
+      "relevant_f1": 0.6136,
+      "not_relevant_f1": 0.9444
+    },
+    {
+      "threshold": 0.6,
+      "accuracy": 0.9035,
+      "macro_f1": 0.779,
+      "relevant_precision": 0.6011,
+      "relevant_recall": 0.6257,
+      "relevant_f1": 0.6132,
+      "not_relevant_f1": 0.9449
+    },
+    {
+      "threshold": 0.65,
+      "accuracy": 0.9028,
+      "macro_f1": 0.7746,
+      "relevant_precision": 0.6012,
+      "relevant_recall": 0.6082,
+      "relevant_f1": 0.6047,
+      "not_relevant_f1": 0.9446
+    },
+    {
+      "threshold": 0.7,
+      "accuracy": 0.9028,
+      "macro_f1": 0.7735,
+      "relevant_precision": 0.6023,
+      "relevant_recall": 0.6023,
+      "relevant_f1": 0.6023,
+      "not_relevant_f1": 0.9446
+    }
+  ],
+  "label2id": {
+    "NOT_RELEVANT": 0,
+    "RELEVANT": 1
+  },
+  "id2label": {
+    "0": "NOT_RELEVANT",
+    "1": "RELEVANT"
+  },
+  "final_test_metrics": {
+    "accuracy": 0.9035,
+    "macro_precision": 0.7776,
+    "macro_recall": 0.791,
+    "macro_f1": 0.7841,
+    "weighted_f1": 0.9046,
+    "not_relevant_f1": 0.9447,
+    "not_relevant_precision": 0.9485,
+    "not_relevant_recall": 0.9409,
+    "not_relevant_support": 1370,
+    "relevant_f1": 0.6234,
+    "relevant_precision": 0.6068,
+    "relevant_recall": 0.641,
+    "relevant_support": 195,
+    "roc_auc": 0.9032,
+    "pr_auc": 0.6534,
+    "confusion_matrix": [
+      [
+        1289,
+        81
+      ],
+      [
+        70,
+        125
+      ]
+    ],
+    "selected_threshold": 0.35,
+    "eval_time_seconds": 10.43,
+    "throughput_samples_per_sec": 150.04
+  }
+}

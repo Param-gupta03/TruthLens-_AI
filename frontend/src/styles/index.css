@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Times New Roman', 'Tinos', Times, 'Liberation Serif', serif;
+  --font-sans: 'Times New Roman', 'Tinos', Times, 'Liberation Serif', serif;
+  --font-roman: 'Times New Roman', 'Tinos', Times, 'Liberation Serif', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Humanized Editorial Color Palette */
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #faf7f0;
+  --color-cream-200: #f4efe6;
+  --color-cream-300: #ebe4d8;
+  --color-cream-400: #dfd5c6;
+  --color-cream-500: #c9bcab;
+
+  --color-paper: #ffffff;
+  --color-paper-muted: #fbf9f5;
+
+  --color-ink-950: #121316;
+  --color-ink-900: #1c1d22;
+  --color-ink-800: #2e3036;
+  --color-ink-700: #44474f;
+  --color-ink-600: #5d6069;
+  --color-ink-500: #787b85;
+  --color-ink-400: #9b9ea7;
+  --color-ink-300: #c2c4cb;
+
+  --color-truth-green: #15803d;
+  --color-truth-green-dark: #14532d;
+  --color-truth-green-bg: #f0fdf4;
+  --color-truth-green-border: #bbf7d0;
+
+  --color-false-red: #b91c1c;
+  --color-false-red-dark: #7f1d1d;
+  --color-false-red-bg: #fef2f2;
+  --color-false-red-border: #fecaca;
+
+  --color-amber-neutral: #b45309;
+  --color-amber-neutral-dark: #78350f;
+  --color-amber-neutral-bg: #fffbeb;
+  --color-amber-neutral-border: #fde68a;
+}
+
+:root {
+  --bg-cream: #faf7f0;
+  --bg-surface: #ffffff;
+  --border-cream: #ebe4d8;
+  --border-warm: #dfd5c6;
+}
+
+body {
+  background-color: #faf7f0;
+  color: #1c1d22;
+  font-family: 'Times New Roman', 'Tinos', Times, 'Liberation Serif', serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar for Humanized Theme */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #faf7f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfd5c6;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9bcab;
+}
+
+/* Reusable Editorial UI Utilities */
+.editorial-container {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.editorial-card {
+  background-color: #ffffff;
+  border: 1px solid #ebe4d8;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px 0 rgba(28, 29, 34, 0.04);
+}
+
+.editorial-card-interactive {
+  background-color: #ffffff;
+  border: 1px solid #ebe4d8;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px 0 rgba(28, 29, 34, 0.04);
+  transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.editorial-card-interactive:hover {
+  border-color: #c9bcab;
+  box-shadow: 0 4px 12px 0 rgba(28, 29, 34, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Animation utilities */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 1.8s infinite ease-in-out;
+}

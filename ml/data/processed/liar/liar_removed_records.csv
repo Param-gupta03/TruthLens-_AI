@@ -1,0 +1,27 @@
+split,id,statement,label,reason
+train,8882.json,On abortion,half-true,internal_train_duplicate_statement
+train,5894.json,On support for gay marriage.,false,internal_train_duplicate_statement
+train,662.json,"""Obama says Iran is a 'tiny' country, 'doesn't pose a serious threat.'""",false,internal_train_duplicate_statement
+train,8919.json,On repealing the 17th Amendment,false,internal_train_duplicate_statement
+train,7756.json,"Four balanced budgets in a row, with no new taxes for anyone. The best job growth in 12 years. Nearly 130,000 new private-sector jobs. Merit pay to reward New Jerseys best teachers, and the most education funding ever.",mostly-true,internal_train_duplicate_statement
+train,1211.json,On a cap-and-trade plan.,false,internal_train_duplicate_statement
+train,12942.json,On the Trans-Pacific Partnership.,false,internal_train_duplicate_statement
+train,4669.json,"During Sherrod Browns past decade as a D.C. politician, more than one out of every four jobs that has left America, left from Ohio. ... Sherrod Brown will own these horrendous Ohio job numbers next year.",half-true,internal_train_duplicate_statement
+train,8591.json,On changing the rules for filibusters on presidential nominees,false,internal_train_duplicate_statement
+train,995.json,On torture.,half-true,internal_train_duplicate_statement
+train,11527.json,On support for the Export-Import Bank,false,internal_train_duplicate_statement
+train,10477.json,On the status of illegal immigrants,half-true,internal_train_duplicate_statement
+train,12073.json,Six justices on the U.S. Supreme Court have been confirmed in presidential election years since 1912.,true,internal_train_duplicate_statement
+train,4720.json,Says Mitt Romney flip-flopped on abortion.,true,internal_train_duplicate_statement
+train,12349.json,Twenty million Americans are out of work.,half-true,internal_train_duplicate_statement
+train,8589.json,On changing the rules for filibusters on presidential nominees,false,internal_train_duplicate_statement
+train,5822.json,"Some 20,000 Delphi salaried retirees lost up to 70 percent of their pensions as a result of political favoritism and backroom deals.",barely-true,internal_train_duplicate_statement
+valid,4435.json,Social Security is a Ponzi scheme.,false,cross_split_leakage_with_train
+valid,2855.json,On high-speed rail.,false,cross_split_leakage_with_train
+valid,5212.json,Martin Luther King Jr. was a Republican.,false,cross_split_leakage_with_train
+valid,11898.json,Americans havent had a raise in 15 years.,mostly-true,cross_split_leakage_with_train
+valid,6917.json,Signs letter saying Consumer Product Safety Commission is acting without consultation or input from the company to stop the sale of Buckyballs.,false,cross_split_leakage_with_train
+test,6370.json,Says Milken Institute rated San Antonio as nations top-performing local economy.,true,cross_split_leakage_with_train
+test,10917.json,On Common Core.,false,cross_split_leakage_with_train
+test,1093.json,On a cap-and-trade plan.,false,cross_split_leakage_with_train
+test,609.json,On offshore drilling.,half-true,cross_split_leakage_with_train

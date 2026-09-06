@@ -1,0 +1,55 @@
+{
+  "experiment_name": "FEVER CLAIM-ONLY BASELINE",
+  "model_type": "TF-IDF + Logistic Regression",
+  "input_features": "claim_only (no evidence text available in raw FEVER)",
+  "train_samples": 121287,
+  "valid_samples": 13477,
+  "max_features": 25000,
+  "class_weight": "balanced",
+  "random_state": 42,
+  "metrics": {
+    "accuracy": 0.5742,
+    "macro_precision": 0.5532,
+    "macro_recall": 0.5734,
+    "macro_f1": 0.5574,
+    "weighted_f1": 0.5823,
+    "per_class": {
+      "SUPPORTS": {
+        "precision": 0.7182,
+        "recall": 0.5821,
+        "f1": 0.6431,
+        "support": 7359
+      },
+      "REFUTES": {
+        "precision": 0.5414,
+        "recall": 0.618,
+        "f1": 0.5772,
+        "support": 2793
+      },
+      "NOT_ENOUGH_INFO": {
+        "precision": 0.3999,
+        "recall": 0.52,
+        "f1": 0.4521,
+        "support": 3325
+      }
+    },
+    "confusion_matrix": [
+      [
+        4284,
+        984,
+        2091
+      ],
+      [
+        563,
+        1726,
+        504
+      ],
+      [
+        1118,
+        478,
+        1729
+      ]
+    ]
+  },
+  "runtime_seconds": 6.24
+}

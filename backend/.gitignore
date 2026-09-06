@@ -1,0 +1,61 @@
+# ==============================================================================
+# TruthLens AI — Git Ignore Policy
+# Protects secrets, node_modules, Python virtualenvs, caches, and logs
+# ==============================================================================
+
+# Environment files with credentials
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+
+# Node dependencies and build outputs
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs & Database runtime files
+logs/
+*.log
+npm-debug.log*
+
+# OS & Editor configurations
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary & Scratch files
+*.tmp
+*.bak
+scratch/

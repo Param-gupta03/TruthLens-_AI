@@ -1,0 +1,3 @@
+split,id,claim,reason
+dev,870,Obesity decreases life quality.,cross_split_claim_leakage_with_train
+dev,1292,There is no association between HNF4A mutations and diabetes risks.,cross_split_claim_leakage_with_train
