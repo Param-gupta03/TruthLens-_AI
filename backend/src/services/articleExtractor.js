@@ -150,9 +150,9 @@ const extractArticleText = async (article, timeoutMs = config.extractionTimeoutM
         'Accept-Language': 'en-US,en;q=0.9'
       },
       timeout: timeoutMs || 8000,
-      maxRedirects: 3,
+      maxRedirects: 10,
       maxContentLength: 5 * 1024 * 1024, // 5MB limit
-      validateStatus: (status) => status >= 200 && status < 300
+      validateStatus: (status) => status >= 200 && status < 400
     });
 
     const contentType = (response.headers['content-type'] || '').toLowerCase();

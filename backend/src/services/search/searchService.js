@@ -217,16 +217,27 @@ const searchNews = async (claim, options = {}) => {
     wikiPromise
   ]);
 
+  let primaryHits = providerResultsArray.flat();
+  // If primary search provider yielded 0 articles (e.g. NewsAPI 429 rate limit reached), fall back to free DuckDuckGo/GoogleNews
+  if (primaryHits.length === 0 && primaryProvider.name !== 'duckduckgo') {
+    try {
+      const { DuckDuckGoProvider } = require('./providers');
+      const ddgFallback = new DuckDuckGoProvider(config.searchTimeoutMs);
+      const fallbackHits = await Promise.all(
+        queries.map(q => ddgFallback.search(q, maxArticles).catch(() => []))
+      );
+      primaryHits = fallbackHits.flat().map(h => ({ ...h, queryUsed: queries[0] }));
+    } catch (fbErr) {
+      // Ignore fallback error
+    }
+  }
+
   // Combine hits: Wikipedia hits first, then provider hits
   const allHits = [];
   if (Array.isArray(wikiHits)) {
     allHits.push(...wikiHits);
   }
-  for (const resList of providerResultsArray) {
-    if (Array.isArray(resList)) {
-      allHits.push(...resList);
-    }
-  }
+  allHits.push(...primaryHits);
 
   for (const article of allHits) {
     if (!article || !article.url) continue;

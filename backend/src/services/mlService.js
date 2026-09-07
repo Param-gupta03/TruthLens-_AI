@@ -5,6 +5,7 @@ const { AppError } = require('../middleware/errorHandler');
 const mlClient = axios.create({
   baseURL: config.mlServiceUrl,
   timeout: 30000, // 30s timeout for model inference
+  maxRedirects: 5,
   headers: {
     'Content-Type': 'application/json'
   }
