@@ -21,7 +21,7 @@ const config = {
   llmApiKey: process.env.LLM_API_KEY || process.env.OPENAI_API_KEY || process.env.GEMINI_API_KEY || '',
   llmTimeoutMs: parseInt(process.env.LLM_TIMEOUT_MS, 10) || 15000,
   maxLlmEvidence: parseInt(process.env.MAX_LLM_EVIDENCE, 10) || 5,
-  corsOrigin: process.env.CORS_ORIGIN || 'http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173',
+  corsOrigin: process.env.CORS_ORIGIN || '*',
   rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10) || 15 * 60 * 1000,
   rateLimitMaxResearch: parseInt(process.env.RATE_LIMIT_MAX_RESEARCH, 10) || 30,
   rateLimitMaxGeneral: parseInt(process.env.RATE_LIMIT_MAX_GENERAL, 10) || 120,

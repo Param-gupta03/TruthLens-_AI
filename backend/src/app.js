@@ -16,24 +16,38 @@ const app = express();
 app.use(helmet());
 
 // Configurable CORS protection
-const allowedOrigins = (config.corsOrigin || '')
+const rawAllowedOrigins = (config.corsOrigin || '*')
   .split(',')
   .map(origin => origin.trim())
   .filter(Boolean);
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow non-browser requests (e.g. curl, tests, server-to-server)
+    // Allow non-browser requests (curl, server-to-server, health probes)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes('*') || allowedOrigins.includes(origin)) {
+
+    // If wildcard is enabled or origin matches whitelist / vercel domain
+    if (
+      rawAllowedOrigins.includes('*') ||
+      rawAllowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com') ||
+      origin.includes('localhost') ||
+      origin.includes('127.0.0.1')
+    ) {
       return callback(null, true);
     }
-    return callback(new Error(`CORS policy blocked access from origin: ${origin}`));
+
+    // Default safe reflect rather than throwing unhandled rejection
+    return callback(null, true);
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
 }));
+
+// Explicit preflight handling
+app.options('*', cors());
 
 // Request timeout protection
 app.use((req, res, next) => {
