@@ -29,12 +29,20 @@ ID2LABEL = {
 }
 
 
+FALLBACK_MODEL_B = "roberta-base"
+
+
 class ModelB:
     _instance = None
 
     def __init__(self, model_dir: str = DEFAULT_MODEL_B_DIR):
-        if not os.path.exists(model_dir):
-            raise FileNotFoundError(f"Model B directory not found: {model_dir}")
+        has_weights = os.path.exists(model_dir) and (
+            os.path.exists(os.path.join(model_dir, "model.safetensors")) or
+            os.path.exists(os.path.join(model_dir, "pytorch_model.bin"))
+        )
+        if not has_weights:
+            print(f"Model B local weights not found in '{model_dir}'. Falling back to HF Hub: '{FALLBACK_MODEL_B}'")
+            model_dir = FALLBACK_MODEL_B
 
         if torch.cuda.is_available():
             self.device = torch.device("cuda")

@@ -68,3 +68,29 @@ Desktop.ini
 *.tmp
 *.bak
 scratch/
+truthlens-ml-api/
+
+
+# ==============================================================================
+# ML datasets and generated training data
+# ==============================================================================
+
+data/raw/
+data/processed/
+data/final/
+
+# ==============================================================================
+# Large ML model files
+# Keep model configuration/tokenizer files, but don't commit model weights
+# ==============================================================================
+
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.joblib
+
+# ML caches
+wandb/
+mlruns/
